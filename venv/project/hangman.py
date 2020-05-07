@@ -9,7 +9,7 @@ def first():
     print("Welcome to Hangman")
     welcome(input("Enter name\n"))
 def won():
-    print("You Won ")
+    print("\nYou Won ")
     os.system("pause")
 def lost():
     sarcasms = ['It’s okay if you didn’t get it. Not everyone has great mind.',
@@ -101,7 +101,7 @@ def wordguess():
     turn = r+4
 
     gword=random.choice(word)
-    print("Guess the characters",gword)
+    print("Guess the characters")
 
 
     print("Length of word is ",len(gword))
