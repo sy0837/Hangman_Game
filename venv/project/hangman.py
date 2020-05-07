@@ -22,10 +22,69 @@ def lost():
     print("You lost")
     print('{}\n'.format(random.choice(sarcasms)))
     os.system("pause")
+def patt(guessn):
+    if guessn == 6:
+        print("_________")
+        print("|	 |")
+        print("|")
+        print("|")
+        print("|")
+        print("|")
+        print("|________")
+    elif guessn == 5:
+        print("_________")
+        print("|	 |")
+        print("|	 O")
+        print("|")
+        print("|")
+        print("|")
+        print("|________")
+    elif guessn == 4:
+        print("_________")
+        print("|	 |")
+        print("|	 O")
+        print("|    |")
+        print("|    |")
+        print("|")
+        print("|________")
+    elif guessn == 3:
+        print("_________")
+        print("|	 |")
+        print("|	 O")
+        print("|   \|")
+        print("|    |")
+        print("|")
+        print("|________")
+    elif guessn == 2:
+        print("_________")
+        print("|	 |")
+        print("|	 O")
+        print("|   \|/")
+        print("|    |")
+        print("|")
+        print("|________")
+    elif guessn == 1:
+        print("_________")
+        print("|	 |")
+        print("|	 O")
+        print("|   \|/")
+        print("|    |")
+        print("    /")
+        print("|________")
+    elif guessn == 0:
+        print("_________")
+        print("|	 |")
+        print("|	 O")
+        print("    \|/")
+        print("     |")
+        print("    / | ")
+        print("|________")
+
+
 def wordguess():
-    word={'rainbow':['Colors','Sky','Rain'], 'computer':[], 'science':[], 'programming':[],
-         'python':[], 'mathematics':[], 'player':[], 'condition':[],
-         'reverse':[], 'water':[], 'board':[], 'geeks':[]}
+    word=['rainbow', 'computer', 'science', 'programming',
+         'python', 'mathematics', 'player', 'condition',
+         'reverse', 'water', 'board', 'geeks']
 
     count=0
     r=0
@@ -37,7 +96,7 @@ def wordguess():
             r=count
         count = 0
 
-    guessn=4
+    guessn=7
     print("You will get only 4 guesses")
     turn = r+4
 
@@ -52,23 +111,27 @@ def wordguess():
         for letter in gword:
             if letter in gletter:
                 comp = ['Nice one', 'Great', 'You are killing it']
-                print('{}  ({})'.format(letter,random.choice(comp)))
+                print('{} '.format(letter),end="")
             else:
-                print("-")
+                print("_ ",end="")
         if set(gletter) == set(gword):   # if the words match & converted to sets to remove repetition of the letters
             won()
             turn=0
             break
         else:
-            gletterw = input("Enter a letter   ")[0]
+            gletterw = input("\nEnter a letter   ")[0]
 
 
         if gletterw in gword:
+            comp = ['Nice one', 'Great', 'You are killing it']
+            print("{}".format(random.choice(comp)))
             print("Correct {} guesses left".format(guessn))
+            patt(guessn)
             gletter += gletterw
         else:
             guessn-=1
             print("Wrong {} guesses left".format(guessn))
+            patt(guessn)
 
         turn-=1
     if guessn==0:
